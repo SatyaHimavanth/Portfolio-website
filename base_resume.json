@@ -1,0 +1,169 @@
+{
+  "name": "Satya Himavanth Tripurari",
+  "contact": {
+    "phone": "9492790628",
+    "email": "himavantht31@gmail.com",
+    "location": "Venkataramana Colony, Vanasthalipuram, Hyderabad, Telangana, India",
+    "linkedin": "https://www.linkedin.com/in/satyahimavanth-tripurari/",
+    "github": "https://github.com/SatyaHimavanth"
+  },
+  "objective": "",
+  "skills": {
+    "Technical Skills": [
+      "Selenium Testing",
+      "Data Analysis"
+    ],
+    "Soft Skills": [
+      "Communication",
+      "Team Collaboration",
+      "Time Management",
+      "Problem Solving",
+      "Decision-Making",
+      "Adaptability"
+    ],
+    "Programming Languages": [
+      "Python",
+      "Java",
+      "C"
+    ],
+    "Web Development": [
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ],
+    "Databases": [
+      "SQL",
+      "MongoDB"
+    ],
+    "Version control": [
+      "Git",
+      "GitHub"
+    ],
+    "Cloud Infrastructure and DevOps": [
+      "Terraform",
+      "Jenkins"
+    ],
+    "Frameworks and Libraries": [
+      "ReactJS",
+      "Flask",
+      ".NET"
+    ],
+    "Other tools and technologies": [
+      "Docker",
+      "Kubernetes",
+      "Nginx"
+    ]
+  },
+  "experience": [
+    {
+      "job_title": "Intern",
+      "company": "DRDO",
+      "location": "Hyderabad",
+      "start_date": "19/01/2024",
+      "end_date": "19/04/2024",
+      "responsibilities": [
+        "Learn Qt software",
+        "Develop a windows application to simulate OBC to LC communication"
+      ],
+      "certificate-link": ""
+    },
+    {
+      "job_title": "ML Intern",
+      "company": "Indian Servers",
+      "location": "Remote",
+      "start_date": "17/04/2022",
+      "end_date": "25/06/2022",
+      "responsibilities": [
+        "Learn Statistics and Machine Learning in python",
+        "Build an ML model to detect Age, Race and Gender using a persons image"
+      ],
+      "certificate-link": ""
+    }
+  ],
+  "education": [
+    {
+      "degree": "B.Tech in Computer Science",
+      "institution": "R.V.R & J.C College of Engineering",
+      "grade": "8.55 CGPA",
+      "graduation_year": "2024"
+    },
+    {
+      "degree": "Intermediate",
+      "institution": "Abhyaas Junior College",
+      "grade": "9.28",
+      "graduation_year": "2020"
+    },
+    {
+      "degree": "10th",
+      "institution": "Bhashyam High School",
+      "grade": "9.5",
+      "graduation_year": "2018"
+    }
+  ],
+  "projects": [
+    {
+      "name": "OBC to LC Simulator",
+      "description": "This project is built using Qt to mimics communication between an onboard computer (OBC) and a launch computer (LC). This simulator can be used to test the OBC for any code bugs.",
+      "github-link": "",
+      "hosting-link": ""
+    },
+    {
+      "name": "Local Cloud Hosting",
+      "description": "This project is built using Flask framework. It allows anyone connected to the hosting network (here wifi) to view and download files. Uploading a file requires a secure key.",
+      "github-link": "https://github.com/SatyaHimavanth/My-Local-Cloud",
+      "hosting-link": ""
+    }
+  ],
+  "certifications": [
+    {
+      "name": "Java Full Stack",
+      "institution": "Wipro",
+      "date": "",
+      "expire-date": "",
+      "certificate-link": ""
+    },
+    {
+      "name": "Cloud and Devops",
+      "institution": "EPAM",
+      "date": "",
+      "expire-date": "",
+      "certificate-link": ""
+    },
+    {
+      "name": "AWS Academy Cloud Foundationd",
+      "institution": "Amazon",
+      "date": "",
+      "expire-date": "",
+      "certificate-link": ""
+    },
+    {
+      "name": "Advanced Data Analytics",
+      "institution": "Google",
+      "date": "",
+      "expire-date": "",
+      "certificate-link": ""
+    },
+    {
+      "name": "Project Management",
+      "institution": "Google",
+      "date": "",
+      "expire-date": "",
+      "certificate-link": ""
+    },
+    {
+      "name": "UX Design",
+      "institution": "Google",
+      "date": "",
+      "expire-date": "",
+      "certificate-link": ""
+    }
+  ],
+  "languages": [
+    "English",
+    "Hindi"
+  ],
+  "achievements and Awards": [
+    "I secured first place in the 'Code crack contest' held at my college.",
+    "Participated in 'JavaFest23' a national level conference"
+  ]
+}
