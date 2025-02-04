@@ -121,21 +121,45 @@ function certifications() {
     certificationsSection.innerHTML = '';
 
     // Add certificates
-    for (cert in certificateData) {
+    for (let cert in certificateData) {
         const card = document.createElement('div');
         card.classList.add('certificate-card');
 
         const image = document.createElement('img');
-        console.log(certificateData[cert].certificateLink);
-        image.src = certificateData[cert].certificateLink; // Add a default placeholder image
+        const certificateLink = certificateData[cert].certificateLink;
+        image.src = certificateLink;
         image.classList.add('certificate-image');
         
+        // Add error handling for image loading
+        image.onerror = () => {
+            image.src = 'path/to/placeholder-image.jpg'; // Add your placeholder image path
+            console.error(`Failed to load certificate image for ${certificateData[cert].name}`);
+        };
+        
         const downloadIcon = document.createElement('div');
-        downloadIcon.innerHTML = '⬇️'; // You can replace this with an actual icon
+        downloadIcon.innerHTML = '⬇️';
         downloadIcon.classList.add('download-icon');
         downloadIcon.onclick = (e) => {
             e.stopPropagation();
-            downloadCertificate(certificateData[cert].certificateLink, certificateData[cert].name);
+            if (!certificateLink) {
+                alert('Certificate not available for download');
+                return;
+            }
+            
+            try {
+                const link = document.createElement('a');
+                const imageLink = certificateLink;
+                const pdfLink = certificateLink.replace("/images", '/pdfs').replace('.jpeg', '.pdf');
+                link.href = imageLink;
+                link.href = pdfLink;
+                link.download = `${certificateData[cert].name}.pdf`;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            } catch (error) {
+                console.error('Download failed:', error);
+                alert('Failed to download certificate');
+            }
         };
 
         const title = document.createElement('h3');
@@ -166,19 +190,4 @@ function certifications() {
             behavior: 'smooth'
         });
     });
-}
-
-function downloadCertificate(certificateLink, title) {
-    if (!certificateLink) {
-        alert('Certificate not available for download');
-        return;
-    }
-
-    // Create a temporary link to trigger download
-    const link = document.createElement('a');
-    link.href = certificateLink.replace("/images", "/pdf");
-    link.download = 'certificate.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
 }
