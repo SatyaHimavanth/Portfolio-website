@@ -66,7 +66,7 @@
           "Learn Qt software",
           "Develop a windows application to simulate OBC to LC communication"
         ],
-        "certificate-link": "./assets/internships/images/DRDO Internship Certificate.jpeg"
+        "certificate-link": "assets/internships/images/DRDO-Internship-Certificate.jpeg"
       },
       {
         "job_title": "ML Intern",
@@ -78,7 +78,7 @@
           "Learn Statistics and Machine Learning in python",
           "Build an ML model to detect Age, Race and Gender using a persons image"
         ],
-        "certificate-link": "./assets/internships/images/Indian Servers Internship Certificate.jpeg"
+        "certificate-link": "assets/internships/images/Indian-Servers-Internship-Certificate.jpeg"
       }
     ],
     "education": [
@@ -121,42 +121,42 @@
         "institution": "Wipro",
         "issue-date": "",
         "expire-date": "",
-        "certificate-link": "./assets/certifications/images/Wipro TalentNext Java Full Stack Certification.jpegTelegram Desktop"
+        "certificate-link": "assets/certifications/images/Wipro-TalentNext-Java-Full-Stack-Certification.jpeg"
       },
       {
         "name": "Cloud and Devops",
         "institution": "EPAM",
         "issue-date": "",
         "expire-date": "",
-        "certificate-link": "./assets/certifications/images/EPAM_Cloud_and_DevOps.jpeg"
+        "certificate-link": "assets/certifications/images/EPAM_Cloud_and_DevOps.jpeg"
       },
       {
         "name": "AWS Academy Cloud Foundations",
         "institution": "Amazon",
         "issue-date": "",
         "expire-date": "",
-        "certificate-link": "./assets/certifications/images/AWS_Academy_Graduate___AWS_Academy_Cloud_Foundations_Badge20221206-30-1wmowkr.jpeg"
+        "certificate-link": "assets/certifications/images/AWS_Academy_Graduate___AWS_Academy_Cloud_Foundations_Badge20221206-30-1wmowkr.jpeg"
       },
       {
         "name": "Advanced Data Analytics",
         "institution": "Google",
         "issue-date": "",
         "expire-date": "",
-        "certificate-link": "./assets/certifications/images/Google Advanced Data Analytics Coursera HM53LZ93W2DY.jpeg"
+        "certificate-link": "assets/certifications/images/Google-Advanced-Data-Analytics-Coursera-HM53LZ93W2DY.jpeg"
       },
       {
         "name": "Project Management",
         "institution": "Google",
         "issue-date": "",
         "expire-date": "",
-        "certificate-link": "./assets/certifications/images/Google Project Management Professional Certification Coursera TGKUR55VY478.jpeg"
+        "certificate-link": "assets/certifications/images/Google-Project-Management-Professional-Certification-Coursera-TGKUR55VY478.jpeg"
       },
       {
         "name": "UX Design",
         "institution": "Google",
         "issue-date": "",
         "expire-date": "",
-        "certificate-link": "./assets/certifications/images/Google UX Design Professional Certification Coursera 9WBFXRCQPQL7.jpeg"
+        "certificate-link": "assets/certifications/images/Google-UX-Design-Professional-Certification-Coursera-9WBFXRCQPQL7.jpeg"
       }
     ],
     "languages": [
