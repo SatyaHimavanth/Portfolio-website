@@ -51,7 +51,8 @@ function populate_page(){
 
 function basic_details(){
     document.getElementById("name").innerText = profile_data['name'];
-    document.getElementById("home-section").innerHTML = `<h1>Hi, I'm ${profile_data['name']}</h1> <p>${profile_data['profession']}</p>`
+    document.getElementById("home-section").innerHTML = `<h1>Hi, I'm ${profile_data['name']}</h1> <p>${profile_data['profession']}</p>`;
+    document.getElementById("github_id").href = profile_data.contact.github;
 }
 
 function skills() {
