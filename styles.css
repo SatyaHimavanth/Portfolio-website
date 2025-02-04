@@ -85,6 +85,18 @@ body {
     margin: 0 auto;
 }
 
+.projects-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 10px;
+    margin-top: 2rem;
+    transition: transform 0.3s;
+}
+
+.projects-card:hover {
+    transform: translateX(10px);
+}
+
 /* Education Section */
 .education {
     padding: 5rem 2rem;
@@ -229,53 +241,58 @@ body {
 .certifications-container {
     position: relative;
     max-width: 1200px;
-    margin: 2rem auto;
-    padding: 0 40px;
+    margin: 0 auto;
+    padding: 0 60px;
 }
 
 .certificates-gallery {
     display: flex;
+    align-items: center;
+    justify-content: center;
     gap: 20px;
     overflow-x: hidden;
     scroll-behavior: smooth;
     padding: 20px 0;
+    position: relative;
 }
 
 .certificate-card {
+    position: relative;
     min-width: 300px;
+    height: 600px;
     background: rgba(255, 255, 255, 0.05);
     border-radius: 15px;
     padding: 20px;
     text-align: center;
-    transition: transform 0.3s;
-    cursor: pointer;
+    transition: all 0.3s ease;
+    transform: scale(0.8);
+    opacity: 0.6;
+    display: flex;
+    flex-direction: column;
 }
 
-.certificate-card:hover {
-    transform: translateY(-5px);
+.certificate-card.active {
+    transform: scale(1);
+    opacity: 1;
+    min-width: 500px;
 }
 
 .certificate-image {
     width: 100%;
-    height: 200px;
-    object-fit: cover;
+    height: 500px;
     border-radius: 10px;
     margin-bottom: 15px;
+    object-fit: contain;
+    background: rgba(255, 255, 255, 0.02);
 }
 
-.download-icon {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: rgba(0, 0, 0, 0.5);
-    padding: 8px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background 0.3s;
+.certificate-card h3,
+.certificate-card p {
+    margin: 5px 0;
 }
 
-.download-icon:hover {
-    background: rgba(0, 0, 0, 0.8);
+.certificate-info {
+    margin-top: auto;
 }
 
 .scroll-btn {
@@ -285,20 +302,42 @@ body {
     background: var(--primary-color);
     border: none;
     color: white;
-    padding: 15px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     cursor: pointer;
     z-index: 10;
-}
-
-.left-btn {
-    left: 0;
-}
-
-.right-btn {
-    right: 0;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .scroll-btn:hover {
-    background: var(--secondary-color);
+    opacity: 1;
+}
+
+.left-btn {
+    left: 10px;
+}
+
+.right-btn {
+    right: 10px;
+}
+
+.download-icon {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 8px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s;
+    z-index: 20;
+}
+
+.download-icon:hover {
+    background: rgba(0, 0, 0, 0.8);
 }

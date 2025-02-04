@@ -40,6 +40,7 @@ function populate_page(){
 
     basic_details();
     skills();
+    projects();
     education();
     certifications();
 
@@ -74,6 +75,62 @@ function skills() {
         }
         categoryDiv.appendChild(skillTagsDiv);
         skills_section.appendChild(categoryDiv);
+    }
+}
+
+function projects(){
+    const projects_section = document.getElementById("projects-section");
+    const projects_list = profile_data["projects"];
+    for (let proj of projects_list) {
+        let categoryDiv = document.createElement("div");
+        categoryDiv.classList.add("projects-card", "animate-on-scroll");
+
+        categoryDiv.innerHTML = `<h3>${proj.name}</h3>`;
+
+        const desc = document.createElement("p");
+        desc.innerHTML = proj.description;
+
+        categoryDiv.appendChild(desc);
+
+        const links = document.createElement("table");
+        links.style.paddingTop = "20px";
+        links.style.width = "100%";
+        if(proj.githubLink){
+            const Row = document.createElement("tr");
+            const th = document.createElement("th");
+            th.textContent = 'GitHub Link';
+            th.style.width = "50%";
+            th.style.textAlign = "left";
+            Row.appendChild(th);
+
+            const td = document.createElement("td");
+            td.innerHTML = `<a href='${proj.githubLink}' target="_blank">${proj.githubLink}</a>`;
+            th.style.width = "50%";
+            th.style.textAlign = "left";
+            Row.appendChild(td);
+
+            links.appendChild(Row);
+        }
+        if(proj.hostingLink){
+            const Row = document.createElement("tr");
+            const th = document.createElement("th");
+            th.textContent = 'Hosting Link';
+            th.style.width = "50%";
+            th.style.textAlign = "left";
+            Row.appendChild(th);
+
+            const td = document.createElement("td");
+            td.innerHTML = `<a href='${proj.hostingLink}'>${proj.hostingLink}</a>`;
+            th.style.width = "50%";
+            th.style.textAlign = "left";
+            Row.appendChild(td);
+
+            links.appendChild(Row);
+        }
+
+        categoryDiv.appendChild(links);
+
+        projects_section.appendChild(categoryDiv);
     }
 }
 
@@ -120,39 +177,41 @@ function certifications() {
     // Clear existing content
     certificationsSection.innerHTML = '';
 
-    // Add certificates
-    for (let cert in certificateData) {
+    // Convert certificates object to array
+    const certificatesArray = Object.entries(certificateData);
+    let currentIndex = 0;
+
+    function createCertificateCard(certData, isActive = false) {
+        const [cert, data] = certData;
         const card = document.createElement('div');
         card.classList.add('certificate-card');
+        if (isActive) card.classList.add('active');
 
         const image = document.createElement('img');
-        const certificateLink = certificateData[cert].certificateLink;
-        image.src = certificateLink;
+        image.src = data.certificateLink;
         image.classList.add('certificate-image');
         
-        // Add error handling for image loading
         image.onerror = () => {
-            image.src = 'path/to/placeholder-image.jpg'; // Add your placeholder image path
-            console.error(`Failed to load certificate image for ${certificateData[cert].name}`);
+            image.src = 'path/to/placeholder-image.jpg';
+            console.error(`Failed to load certificate image for ${data.name}`);
         };
-        
+
         const downloadIcon = document.createElement('div');
         downloadIcon.innerHTML = '⬇️';
         downloadIcon.classList.add('download-icon');
         downloadIcon.onclick = (e) => {
             e.stopPropagation();
-            if (!certificateLink) {
+            if (!data.certificateLink) {
                 alert('Certificate not available for download');
                 return;
             }
             
             try {
                 const link = document.createElement('a');
-                const imageLink = certificateLink;
-                const pdfLink = certificateLink.replace("/images", '/pdfs').replace('.jpeg', '.pdf');
-                link.href = imageLink;
-                link.href = pdfLink;
-                link.download = `${certificateData[cert].name}.pdf`;
+                link.href = data.certificateLink;
+                link.download = `${data.name}.jpeg`;
+                link.href = data.certificateLink.replace("/images", "/pdfs").replace(".jpeg", ".pdf");
+                link.download = `${data.name}.pdf`;
                 document.body.appendChild(link);
                 link.click();
                 document.body.removeChild(link);
@@ -162,32 +221,53 @@ function certifications() {
             }
         };
 
+        const infoDiv = document.createElement('div');
+        infoDiv.classList.add('certificate-info');
+        
         const title = document.createElement('h3');
-        title.textContent = certificateData[cert].name;
+        title.textContent = data.name;
 
         const institution = document.createElement('p');
-        institution.textContent = certificateData[cert].institution;
+        institution.textContent = data.institution;
+
+        infoDiv.appendChild(title);
+        infoDiv.appendChild(institution);
 
         card.appendChild(image);
         card.appendChild(downloadIcon);
-        card.appendChild(title);
-        card.appendChild(institution);
+        card.appendChild(infoDiv);
 
-        certificationsSection.appendChild(card);
+        return card;
     }
 
-    // Scroll controls
+    function updateDisplay() {
+        certificationsSection.innerHTML = '';
+        
+        // Calculate previous and next indices with wrapping
+        const prevIndex = (currentIndex - 1 + certificatesArray.length) % certificatesArray.length;
+        const nextIndex = (currentIndex + 1) % certificatesArray.length;
+
+        // Add previous certificate
+        certificationsSection.appendChild(createCertificateCard(certificatesArray[prevIndex]));
+        
+        // Add current (active) certificate
+        certificationsSection.appendChild(createCertificateCard(certificatesArray[currentIndex], true));
+        
+        // Add next certificate
+        certificationsSection.appendChild(createCertificateCard(certificatesArray[nextIndex]));
+    }
+
+    // Initial display
+    updateDisplay();
+
+    // Event listeners for navigation
     leftBtn.addEventListener('click', () => {
-        certificationsSection.scrollBy({
-            left: -320,
-            behavior: 'smooth'
-        });
+        currentIndex = (currentIndex - 1 + certificatesArray.length) % certificatesArray.length;
+        updateDisplay();
     });
 
     rightBtn.addEventListener('click', () => {
-        certificationsSection.scrollBy({
-            left: 320,
-            behavior: 'smooth'
-        });
+        currentIndex = (currentIndex + 1) % certificatesArray.length;
+        updateDisplay();
     });
 }
