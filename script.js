@@ -121,13 +121,13 @@ function certifications() {
     certificationsSection.innerHTML = '';
 
     // Add certificates
-    for (let cert in certificateData) {
+    for (cert in certificateData) {
         const card = document.createElement('div');
         card.classList.add('certificate-card');
 
         const image = document.createElement('img');
-        console.log(cert.certificateLink);
-        image.src = cert.certificateLink; // Add a default placeholder image
+        console.log(certificateData[cert].certificateLink);
+        image.src = certificateData[cert].certificateLink; // Add a default placeholder image
         image.classList.add('certificate-image');
         
         const downloadIcon = document.createElement('div');
@@ -135,7 +135,7 @@ function certifications() {
         downloadIcon.classList.add('download-icon');
         downloadIcon.onclick = (e) => {
             e.stopPropagation();
-            downloadCertificate(cert.certificateLink, cert.name);
+            downloadCertificate(certificateData[cert].certificateLink, certificateData[cert].name);
         };
 
         const title = document.createElement('h3');
