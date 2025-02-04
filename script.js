@@ -126,6 +126,7 @@ function certifications() {
         card.classList.add('certificate-card');
 
         const image = document.createElement('img');
+        console.log(cert.certificateLink);
         image.src = cert.certificateLink; // Add a default placeholder image
         image.classList.add('certificate-image');
         
