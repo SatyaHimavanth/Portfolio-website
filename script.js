@@ -126,7 +126,7 @@ function certifications() {
         card.classList.add('certificate-card');
 
         const image = document.createElement('img');
-        image.src = cert['certificate-link']; // Add a default placeholder image
+        image.src = cert.certificateLink; // Add a default placeholder image
         image.classList.add('certificate-image');
         
         const downloadIcon = document.createElement('div');
@@ -134,7 +134,7 @@ function certifications() {
         downloadIcon.classList.add('download-icon');
         downloadIcon.onclick = (e) => {
             e.stopPropagation();
-            downloadCertificate(certificateData[cert]['certificate-link']);
+            downloadCertificate(cert.certificateLink, cert.name);
         };
 
         const title = document.createElement('h3');
@@ -167,7 +167,7 @@ function certifications() {
     });
 }
 
-function downloadCertificate(certificateLink) {
+function downloadCertificate(certificateLink, title) {
     if (!certificateLink) {
         alert('Certificate not available for download');
         return;
